@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-paper text-ink font-garamond;
+    line-height: 1.6;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-reading mx-auto px-8 py-12;
+  }
+  
+  .editor-textarea {
+    @apply w-full min-h-screen resize-none border-none outline-none bg-transparent font-garamond text-lg leading-relaxed text-ink;
+  }
+  
+  .sidebar-item {
+    @apply px-4 py-2 text-sm rounded-lg cursor-pointer transition-colors hover:bg-gray-100 active:bg-gray-200;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-accent text-white hover:bg-accent;
+  }
+  
+  .button-primary {
+    @apply bg-accent text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+  
+  .button-secondary {
+    @apply bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-page {
+    page-break-after: always;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .page-container {
+    @apply max-w-none px-0 py-0;
+  }
+} 
